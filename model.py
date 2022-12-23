@@ -1,5 +1,5 @@
 import torch
-import torch.nm as nm
+import torch.nn as nn
 
 
 class NeuralNet(nn.Module):
