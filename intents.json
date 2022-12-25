@@ -79,6 +79,18 @@
         "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
         "What did the buffalo say when his son left for college? Bison."
       ]
+    },
+    {
+      "tag": "exam",
+      "patterns": [
+        "exam date ?",
+        "have eny exam today ?",
+        "can i know exam date ?"
+      ],
+      "responses": [
+        "no exam",
+        "no exam happening yet"
+      ]
     }
   ]
 }
