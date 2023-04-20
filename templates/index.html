@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chatbot</title>
+</head>
+<body>
+<h1>Chatbot</h1>
+<div id="chat">
+    <div id="messages"></div>
+    <form id="chat-form" onsubmit="return sendMessage();">
+        <input type="text" name="text" id="message-input" autocomplete="off" required>
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+<script>
+    function sendMessage() {
+        const messageInput = document.getElementById('message-input');
+        const messagesDiv = document.getElementById('messages');
+        const message = messageInput.value;
+
+        const userMessage = document.createElement('p');
+        userMessage.textContent = 'You: ' + message;
+        messagesDiv.appendChild(userMessage);
+
+        fetch('/chat', {
+            method: 'POST',
+            body: new FormData(document.getElementById('chat-form')),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                const botMessage = document.createElement('p');
+                botMessage.textContent = data.response;
+
+                messagesDiv.appendChild(botMessage);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+        messageInput.value = '';
+        return false;
+    }
+</script>
+</body>
+</html>
