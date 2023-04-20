@@ -66,5 +66,6 @@ def chat():
         print(jsonify({'response': f"{bot_name}: I do not understand..."}))
         return jsonify({'response': f"{bot_name}: I do not understand..."})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True, port=5002)
+
