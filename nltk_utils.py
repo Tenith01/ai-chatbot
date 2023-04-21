@@ -4,7 +4,7 @@ import numpy as np
 from nltk.stem.porter import PorterStemmer
 
 stemmer = PorterStemmer()
-# nltk.download('punkt')
+nltk.download('punkt')
 
 
 
